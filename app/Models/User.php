@@ -39,5 +39,12 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean',
+        'is_active' => 'boolean',
     ];
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class, 'owner_id');
+    }
 }
