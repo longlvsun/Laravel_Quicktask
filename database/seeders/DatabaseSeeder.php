@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'username' => fake()->userName(),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
-            'email' => fake()->safeEmail(),
+            'email' => 'admin@app.com',
             'password' => Hash::make('password'),
             'is_admin' => true,
             'is_active' => true,

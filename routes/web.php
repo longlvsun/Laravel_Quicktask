@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('change-language/{lang}', [HomeController::class, 'changeLanguage'])
+    ->name('changeLanguage');
 
 // method 1
 Route::resource('users', UserController::class)->middleware(['auth', 'admin']);

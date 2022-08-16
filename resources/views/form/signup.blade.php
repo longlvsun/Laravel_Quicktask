@@ -2,64 +2,64 @@
 
 @section('content')
     <div class="container">
-        <form action="/signup" method="POST">
+        <form action="{{ route('signup') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label for="email">{{ trans('form.email') }}</label>
                 <input
                     name="email"
                     type="email"
                     class="form-control"
-                    id="exampleInputEmail1"
+                    id="email"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
+                    placeholder="{{ trans('form.enter_email') }}"
                     required
                 />
                 <small id="emailHelp" class="form-text text-muted">
-                    We'll never share your email with anyone else.
+                    {{ trans('form.not_show_mail') }}
                 </small>
             </div>
             <div class="form-group">
-                <label for="exampleUsername1">Username</label>
+                <label for="username">{{ trans('form.username') }}</label>
                 <input
                     name="username"
                     type="text"
                     class="form-control"
-                    id="exampleUsername1"
-                    placeholder="Username"
+                    id="username"
+                    placeholder="{{ trans('form.username') }}"
                     required
                 />
             </div>
             <div class="form-group">
-                <label for="exampleFirstName1">First Name</label>
+                <label for="firstName">{{ trans('form.first_name') }}</label>
                 <input
                     name="first_name"
                     type="text"
                     class="form-control"
-                    id="exampleFirstName1"
-                    placeholder="First Name"
+                    id="firstName"
+                    placeholder="{{ trans('form.first_name') }}"
                     required
                 />
             </div>
             <div class="form-group">
-                <label for="exampleLastName1">Last Name</label>
+                <label for="lastName">{{ trans('form.last_name') }}</label>
                 <input
                     name="last_name"
                     type="text"
                     class="form-control"
-                    id="exampleLastName1"
-                    placeholder="Last Name"
+                    id="lastName"
+                    placeholder="{{ trans('form.last_name') }}"
                     required
                 />
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="password">{{ trans('form.password') }}</label>
                 <input
                     name="password"
                     type="password"
                     class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Password"
+                    id="password"
+                    placeholder="{{ trans('form.enter_password') }}"
                     required
                 />
             </div>
@@ -68,10 +68,10 @@
                     name="remember"
                     type="checkbox"
                     class="form-check-input"
-                    id="exampleCheck1"
+                    id="remember"
                 />
-                <label class="form-check-label" for="exampleCheck1">
-                    Remember me
+                <label class="form-check-label" for="remember">
+                    {{ trans('form.remember') }}
                 </label>
             </div>
             <div id="errs">
@@ -81,8 +81,12 @@
                     @endforeach
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Signup</button>
-            <a class="btn btn-secondary" href="/login">Login</a>
+            <button type="submit" class="btn btn-primary">
+                {{ trans('form.signup') }}
+            </button>
+            <a class="btn btn-secondary" href="{{ route('login') }}">
+                {{ trans('form.login') }}
+            </a>
         </form>
     </div>
 @stop
