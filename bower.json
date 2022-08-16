@@ -1,0 +1,20 @@
+{
+  "name": "Laravel_Quicktask",
+  "description": "",
+  "main": "",
+  "authors": [
+    "longlvsun <le.van.long-b@sun-asterisk.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/longlvsun/Laravel_Quicktask",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  }
+}
