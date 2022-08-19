@@ -15,6 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^5.2.0"
+    "built-bootstrap": "longlvsun/built-bootstrap"
   }
 }
