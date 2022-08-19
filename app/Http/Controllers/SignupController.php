@@ -8,7 +8,6 @@ use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\MessageBag;
 
 class SignupController extends Controller
 {
@@ -36,7 +35,7 @@ class SignupController extends Controller
 
             return Redirect::route('home');
         } catch(Exception $exp) {
-            return view('form.signup')->with('errors', new MessageBag([$exp]));
+            return Redirect::back()->withErrors($exp);
         }
     }
 }

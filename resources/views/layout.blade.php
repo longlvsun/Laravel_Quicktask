@@ -8,6 +8,7 @@
         @vite(['resources/js/script.js'])
     </head>
     <body class="antialiased">
+        @include('header')
         @yield('content')
     </body>
 </html>

@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'Email or password not matched.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Email hoặc Password không chính xác.',
+    'password' => 'Password không chính xác.',
+    'throttle' => 'Quá nhiều lần đăng nhập. Hãy thử lại sau :seconds giây',
 
 ];

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
 {
@@ -26,10 +25,7 @@ class LoginController extends Controller
             return Redirect::route('home');
         }
 
-        return view('form.login')
-            ->with('errors', new MessageBag([
-                'Email hoặc Password không chính xác',
-            ]));
+        return Redirect::back()->withErrors(trans('auth.failed'));
     }
 
     public function logout()
