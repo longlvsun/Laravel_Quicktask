@@ -5,7 +5,7 @@
         <form action="{{ route('signup') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="email">{{ trans('form.email') }}</label>
+                <label for="email">{{ trans('user.email') }}</label>
                 <input
                     name="email"
                     type="email"
@@ -20,40 +20,40 @@
                 </small>
             </div>
             <div class="form-group">
-                <label for="username">{{ trans('form.username') }}</label>
+                <label for="username">{{ trans('user.username') }}</label>
                 <input
                     name="username"
                     type="text"
                     class="form-control"
                     id="username"
-                    placeholder="{{ trans('form.username') }}"
+                    placeholder="{{ trans('user.username') }}"
                     required
                 />
             </div>
             <div class="form-group">
-                <label for="firstName">{{ trans('form.first_name') }}</label>
+                <label for="firstName">{{ trans('user.first_name') }}</label>
                 <input
                     name="first_name"
                     type="text"
                     class="form-control"
                     id="firstName"
-                    placeholder="{{ trans('form.first_name') }}"
+                    placeholder="{{ trans('user.first_name') }}"
                     required
                 />
             </div>
             <div class="form-group">
-                <label for="lastName">{{ trans('form.last_name') }}</label>
+                <label for="lastName">{{ trans('user.last_name') }}</label>
                 <input
                     name="last_name"
                     type="text"
                     class="form-control"
                     id="lastName"
-                    placeholder="{{ trans('form.last_name') }}"
+                    placeholder="{{ trans('user.last_name') }}"
                     required
                 />
             </div>
             <div class="form-group">
-                <label for="password">{{ trans('form.password') }}</label>
+                <label for="password">{{ trans('user.password') }}</label>
                 <input
                     name="password"
                     type="password"
@@ -76,7 +76,7 @@
             </div>
             <div id="errs">
                 @if (isset($errors) && $errors->any())
-                    @foreach($errors->all() as $err)
+                    @foreach ($errors->all() as $err)
                         <div class="text-danger mb-3">{{ $err }}</div>
                     @endforeach
                 @endif
