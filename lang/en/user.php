@@ -11,9 +11,6 @@ return [
     'is_active' => 'Active',
     'actived' => 'Actived',
     'not_active' => 'Not active',
-    'edit' => 'Edit',
-    'destroy' => 'Delete',
-    'created_at' => 'Created at',
-    'updated_at' => 'Updated at',
     'list' => 'users',
+    'num_notes' => 'Notes',
 ];

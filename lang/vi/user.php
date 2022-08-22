@@ -11,9 +11,6 @@ return [
     'is_active' => 'Trạng thái kích hoạt',
     'actived' => 'Đã kích hoạt',
     'not_active' => 'Chưa kích hoạt',
-    'edit' => 'Sửa',
-    'destroy' => 'Xóa',
-    'created_at' => 'Tạo lúc',
-    'updated_at' => 'Cập nhật lúc',
     'list' => 'quản lý người dùng',
+    'num_notes' => 'sô lượng ghi chú',
 ];

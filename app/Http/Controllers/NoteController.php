@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateNoteRequest;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class NoteController extends Controller
 {
@@ -13,7 +17,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -23,7 +27,7 @@ class NoteController extends Controller
      */
     public function create()
     {
-        //
+        return view('notes.create');
     }
 
     /**
@@ -32,9 +36,21 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UpdateNoteRequest $request)
     {
-        //
+        $user = $request->user();
+        $newNote = $request->only('title', 'content');
+        $newNote['owner_id'] = $user->id;
+        $newNote['created_at'] = now();
+        $newNote['updated_at'] = now();
+
+        try {
+            $newId = DB::table('notes')->insertGetId($newNote);
+        } catch (Exception $exp) {
+            return Redirect::back()->withErrors($exp->getMessage());
+        }
+
+        return Redirect::route('notes.edit', ['note' => $newId]);
     }
 
     /**
@@ -45,7 +61,7 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
+        return Redirect::route('notes.edit', ['note' => $id]);
     }
 
     /**
@@ -54,9 +70,16 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $req, $id)
     {
-        //
+        $user = $req->user();
+        $note = DB::table('notes')->find($id);
+
+        if (!$note || $note->owner_id != $user->id) {
+            return Redirect::route('home');
+        }
+
+        return view('notes.edit', ['note' => $note]);
     }
 
     /**
@@ -66,9 +89,25 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateNoteRequest $request, $id)
     {
-        //
+        $user = $request->user();
+        $note = DB::table('notes')->find($id);
+
+        if (!$note || $note->owner_id != $user->id) {
+            return Redirect::back();
+        }
+
+        $newNote = $request->only('title', 'content');
+        try {
+            DB::table('notes')
+                ->where('id', $id)
+                ->update($newNote);
+        } catch (Exception $exp) {
+            return Redirect::back()->withErrors($exp->getMessage());
+        }
+
+        return Redirect::back();
     }
 
     /**
@@ -77,8 +116,23 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $user = $request->user();
+        $note = DB::table('notes')->find($id);
+
+        if (!$note || $note->owner_id != $user->id) {
+            return Redirect::back();
+        }
+
+        try {
+            DB::table('notes')
+                ->where('id', $id)
+                ->delete();
+        } catch (Exception $exp) {
+            return Redirect::back()->withErrors($exp->getMessage());
+        }
+
+        return Redirect::route('home');
     }
 }

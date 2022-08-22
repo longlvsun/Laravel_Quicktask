@@ -18,7 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::withoutGlobalScope('active')->paginate(config('view.page_size'));
+        $users = User::withoutGlobalScope('active')
+            ->with('notes')
+            ->paginate(config('view.page_size'));
 
         return view('users.index', ['users' => $users]);
     }
