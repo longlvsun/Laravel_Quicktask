@@ -86,10 +86,10 @@
                 {{ trans('messages.cancel') }}
             </a>
             <button type="submit" class="btn btn-warning">
-                {{ trans('user.edit') }}
+                {{ trans('messages.edit') }}
             </button>
             <button form="deleteForm" type="submit" class="btn btn-danger">
-                {{ trans('user.destroy') }}
+                {{ trans('messages.destroy') }}
             </button>
         </div>
     </form>

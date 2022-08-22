@@ -17,6 +17,7 @@
                 <th scope="col">{{ trans('user.email') }}</th>
                 <th scope="col">{{ trans('user.first_name') }}</th>
                 <th scope="col">{{ trans('user.last_name') }}</th>
+                <th scope="col">{{ trans('user.num_notes') }}</th>
                 <th scope="col">{{ trans('user.is_admin') }}</th>
                 <th scope="col">{{ trans('user.is_active') }}</th>
                 <th scope="col"></th>
@@ -35,6 +36,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->last_name }}</td>
+                    <td>{{ $user->notes->count() }}</td>
                     <td>
                         <input
                             type="checkbox"
@@ -53,7 +55,7 @@
                     </td>
                     <td>
                         <a class="btn btn-warning" href="{{ route('users.edit', ['user' => $user->id]) }}">
-                            {{ trans('user.edit') }}
+                            {{ trans('messages.edit') }}
                         </a>
                     </td>
                     <td>
@@ -61,7 +63,7 @@
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger">
-                                {{ trans('user.destroy') }}
+                                {{ trans('messages.destroy') }}
                             </button>
                         </form>
                     </td>

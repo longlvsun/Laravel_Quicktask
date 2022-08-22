@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ asset('bower_components/built-bootstrap/dist/css/bootstrap.min.css') }}" />
+        @vite(['resources/css/app.css'])
         @vite(['resources/js/script.js'])
     </head>
     <body class="antialiased">

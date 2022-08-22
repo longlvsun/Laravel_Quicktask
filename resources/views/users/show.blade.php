@@ -20,11 +20,11 @@
                         <td>{{ $user->is_active ? trans('user.actived') : trans('user.not_active') }}</td>
                     </tr>
                     <tr>
-                        <th role="row" with="10%">{{ trans('user.created_at') }}</th>
+                        <th role="row" with="10%">{{ trans('messages.created_at') }}</th>
                         <td>{{ $user->created_at }}</td>
                     </tr>
                     <tr>
-                        <th role="row" with="10%">{{ trans('user.updated_at') }}</th>
+                        <th role="row" with="10%">{{ trans('messages.updated_at') }}</th>
                         <td>{{ $user->updated_at }}</td>
                     </tr>
                 </tbody>
@@ -43,13 +43,13 @@
                     {{ trans('messages.back') }}
                 </a>
                 <a class="btn btn-warning me-3" href="{{ route('users.edit', ['user' => $user->id]) }}">
-                    {{ trans('user.edit') }}
+                    {{ trans('messages.edit') }}
                 </a>
                 <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="POST">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger">
-                        {{ trans('user.destroy') }}
+                        {{ trans('messages.destroy') }}
                     </button>
                 </form>
             </div>
