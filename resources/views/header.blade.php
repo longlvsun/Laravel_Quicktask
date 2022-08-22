@@ -5,7 +5,7 @@ $langs = config('lang.langs');
 
 <div class="container">
     <div class="d-flex justify-content-end">
-        @foreach($langs as $locale => $lang)
+        @foreach ($langs as $locale => $lang)
             <a
                 class="btn {{ $locale == $curr_lang ? 'btn-primary' : 'btn-secondary'  }} m-2"
                 href="{{ route('changeLanguage', ['lang' => $locale]) }}"

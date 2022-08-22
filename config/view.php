@@ -33,4 +33,5 @@ return [
         realpath(storage_path('framework/views'))
     ),
 
+    'page_size' => env('VIEW_PAGE_SIZE', 15),
 ];

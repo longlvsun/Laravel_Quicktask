@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-        document.querySelector("#errs").remove();
+        const errs = document.querySelector("#errs");
+        if (errs) {
+            errs.remove();
+        }
     }, 3000);
 });
