@@ -13,4 +13,5 @@ return [
     'create_new' => 'create new',
     'title' => 'Title',
     'write_something' => 'Write something here...',
+    'home' => 'Home',
 ];

@@ -55,7 +55,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::withoutGlobalScope('active')->find($id);
-        if (!$user) return Redirect::back();
+        if (!$user) return Redirect::route('home');
 
         return view('users.show', ['user' => $user]);
     }
@@ -69,7 +69,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::withoutGlobalScope('active')->find($id);
-        if (!$user) return Redirect::back();
+        if (!$user) return Redirect::route('home');
 
         return view('users.edit', ['user' => $user]);
     }
@@ -84,7 +84,7 @@ class UserController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         $user = User::withoutGlobalScope('active')->find($id);
-        if (!$user) return Redirect::back();
+        if (!$user) return Redirect::route('home');
 
         $newUser = $request->all();
 
@@ -124,7 +124,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::withoutGlobalScope('active')->find($id);
-        if (!$user) return Redirect::back();
+        if (!$user) return Redirect::route('home');
 
         try {
             $user->delete();
@@ -140,6 +140,6 @@ class UserController extends Controller
             return Redirect::back()->withErrors($exp);
         }
 
-        return view('users.index');
+        return Redirect::route('users.index');
     }
 }

@@ -39,7 +39,7 @@
         </div>
         <div class="card-footer">
             <div class="d-flex justify-content-end">
-                <a class="btn btn-primary me-3" href="{{ url()->previous() }}">
+                <a class="btn btn-primary me-3" href="{{ route('users.index') }}">
                     {{ trans('messages.back') }}
                 </a>
                 <a class="btn btn-warning me-3" href="{{ route('users.edit', ['user' => $user->id]) }}">

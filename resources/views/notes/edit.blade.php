@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div>
-                <a href="{{ url()->previous() }}" class="btn btn-primary me-1">
+                <a href="{{ route('home') }}" class="btn btn-primary me-1">
                     {{ trans('messages.back') }}
                 </a>
             </div>

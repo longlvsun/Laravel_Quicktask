@@ -13,4 +13,5 @@ return [
     'create_new' => 'tạo mới',
     'title' => 'Tiêu đề',
     'write_something' => 'Hãy viết gì đó...',
+    'home' => 'Trang chủ',
 ];

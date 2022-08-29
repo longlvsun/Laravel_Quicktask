@@ -82,7 +82,7 @@
             @endif
         </div>
         <div class="mt-3">
-            <a class="btn btn-primary" href="{{ url()->previous() }}">
+            <a class="btn btn-primary" href="{{ route('users.index') }}">
                 {{ trans('messages.cancel') }}
             </a>
             <button type="submit" class="btn btn-warning">

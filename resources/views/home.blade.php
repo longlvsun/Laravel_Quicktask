@@ -6,17 +6,6 @@ $user = auth()->user();
 
 @section('content')
     <div class="container mt-3">
-        <div class="d-flex">
-            <h3 class="flex-grow-1">{{ trans('messages.hi') . ' ' . $user->fullName }}</h3>
-            @if ($user->is_admin)
-                <a class="btn btn-outline-secondary me-3" href="{{ route('users.index') }}">
-                    {{ trans('user.list') }}
-                </a>
-            @endif
-            <a class="btn btn-primary" href="{{ route('logout') }}">
-                {{ trans('form.logout') }}
-            </a>
-        </div>
         <span>{{ trans('messages.has_num_notes', ['num' => $user->notes->count()]) }}.</span>
         <span><a href="{{ route('notes.create') }}">{{ trans('messages.create_new') }}</a></span>
         <div class="d-flex">

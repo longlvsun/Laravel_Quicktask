@@ -95,7 +95,7 @@ class NoteController extends Controller
         $note = DB::table('notes')->find($id);
 
         if (!$note || $note->owner_id != $user->id) {
-            return Redirect::back();
+            return Redirect::route('home');
         }
 
         $newNote = $request->only('title', 'content');
