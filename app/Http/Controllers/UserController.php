@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateRequest;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
@@ -126,9 +127,13 @@ class UserController extends Controller
         $user = User::withoutGlobalScope('active')->find($id);
         if (!$user) return Redirect::route('home');
 
+        DB::beginTransaction();
         try {
+            $user->notes()->delete();
             $user->delete();
+            DB::commit();
         } catch (Exception $exp) {
+            DB::rollBack();
             $exp = $exp->getMessage();
             if (preg_match('/notes_owner_id_foreign/', $exp)) {
                 $exp = trans(

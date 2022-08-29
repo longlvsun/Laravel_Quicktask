@@ -13,4 +13,5 @@ return [
     'login' => 'Login',
     'logout' => 'Logout',
     'signup' => 'Signup',
+    'confirm_destroy' => 'Do you want to delete user :username',
 ];
