@@ -35,11 +35,11 @@ $user = auth()->user();
                     <div class="card-footer">
                         <div>
                             <span>{{ trans('messages.created_at') }}:</span>
-                            {{ $note->created_at }}
+                            {{ format_date($note->created_at) }}
                         </div>
                         <div>
                             <span>{{ trans('messages.updated_at') }}:</span>
-                            {{ $note->updated_at }}
+                            {{ format_date($note->updated_at) }}
                         </div>
                     </div>
                 </div>

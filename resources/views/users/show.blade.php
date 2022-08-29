@@ -21,11 +21,11 @@
                     </tr>
                     <tr>
                         <th role="row" with="10%">{{ trans('messages.created_at') }}</th>
-                        <td>{{ $user->created_at }}</td>
+                        <td>{{ format_date($user->created_at) }}</td>
                     </tr>
                     <tr>
                         <th role="row" with="10%">{{ trans('messages.updated_at') }}</th>
-                        <td>{{ $user->updated_at }}</td>
+                        <td>{{ format_date($user->updated_at) }}</td>
                     </tr>
                 </tbody>
             </table>
