@@ -13,4 +13,5 @@ return [
     'login' => 'Đăng nhập',
     'logout' => 'Đăng xuất',
     'signup' => 'Đăng ký',
+    'confirm_destroy' => 'Bạn có chắc muốn xóa người dùng :username',
 ];

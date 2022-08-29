@@ -48,9 +48,14 @@
                 <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger">
+                    <button
+                        type="button"
+                        class="btn btn-danger"
+                        onclick="confirmAlert('deleteButton', '{{ trans('form.confirm_destroy', ['username' => $user->username]) }}')"
+                    >
                         {{ trans('messages.destroy') }}
                     </button>
+                    <button type="submit" id="deleteButton" class="d-none" />
                 </form>
             </div>
         </div>
